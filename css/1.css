@@ -1,0 +1,12 @@
+.jumbotronpg {
+        background-image: url(../0.jpg);
+        background-position: center ;
+        margin: 0;
+}
+.jumbotronpg h1,
+.jumbotronpg p {
+    color: rgb(255, 255, 255);
+}
+.bg2 {
+    background-color: rgba(21, 20, 20, 0.918);   
+}
