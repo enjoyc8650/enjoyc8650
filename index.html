@@ -1,58 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="flutter_application_1">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>flutter_application_1</title>
-  <link rel="manifest" href="manifest.json">
-
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '3532372479';
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <title>Document</title>
+    <script src="/vue.js"></script>
+    <script>
+        // The value below is injected by flutter build, do not touch.
+        var serviceWorkerVersion = '3532372479';
+      </script>
+      <!-- This script adds the flutter initialization JS code -->
+      <script src="flutter.js" defer></script>
+      <style>
+        #container {width:400px; height: 300px; }
+      </style>
+    
 </head>
 <body>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function(engineInitializer) {
-        return engineInitializer.initializeEngine();
-      }).then(function(appRunner) {
-        return appRunner.runApp();
-      });
-    });
-  </script>
+<div id="abc">
+    <h1>这是{{name}}</h1>
+    
+    <a href="/index.html" ><button>首页</button></a>
+</div>
+    <script>
+        Vue.config.productionTip=false
+
+    new Vue({
+    el:'#abc',
+    data:{
+        name:'阿弄'
+    }
+})
+    
+    </script>
+    <div id="container">
+
+    </div>
+<script src="https://webapi.amap.com/loader.js"></script>
+<script type="text/javascript" >
+AMapLoader.load({
+    "key": "ec1d632062ff2b16701442552869c302",              // 申请好的Web端开发者Key，首次调用 load 时必填
+    "version": "2.0",   // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
+    "plugins": [],           // 需要使用的的插件列表，如比例尺'AMap.Scale'等
+    "AMapUI": {             // 是否加载 AMapUI，缺省不加载
+        "version": '1.1',   // AMapUI 版本
+        "plugins":['overlay/SimpleMarker'],       // 需要加载的 AMapUI ui插件
+    },
+    "Loca":{                // 是否加载 Loca， 缺省不加载
+        "version": '2.0'  // Loca 版本
+    },
+}).then((AMap)=>{
+        var map = new AMap.Map('container',{zoom:11,});
+        
+        
+
+        map.addControl(new AMap.Scale());
+    }).catch((e)=>{
+        console.error(e);  //加载错误提示
+    });   
+</script>
 </body>
 </html>
